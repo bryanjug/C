@@ -1,0 +1,6 @@
+﻿  cipher.c
+c:\users\bullg\source\repos\csci 112\csci 112\cipher.c(40): warning C4013: 'islower' undefined; assuming extern returning int
+c:\users\bullg\source\repos\csci 112\csci 112\cipher.c(41): warning C4013: 'ispunct' undefined; assuming extern returning int
+c:\users\bullg\source\repos\csci 112\csci 112\cipher.c(42): warning C4013: 'toupper' undefined; assuming extern returning int
+  CSCI 112.vcxproj -> C:\Users\Bullg\source\repos\CSCI 112\Debug\CSCI 112.exe
+  CSCI 112.vcxproj -> C:\Users\Bullg\source\repos\CSCI 112\Debug\CSCI 112.pdb (Partial PDB)

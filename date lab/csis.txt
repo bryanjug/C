@@ -1,0 +1,13 @@
+DATE SELECTION MENU
+1. Convert calendar date into Julian date
+2. Convert Julian date into calendar date
+3. Compute days between two calendar dates
+4. Exit program
+1
+What is the calendar date you would like to convert to Julian date?
+2
+6
+1000
+What is the Julian date you would like to convert to calendar date?
+34
+109

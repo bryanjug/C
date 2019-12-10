@@ -1,0 +1,111 @@
+Hello World!
+
+Thank you for choosing Campsite Selector 5000. Where would you like to camp?
+1. California
+2. Utah
+3. Wyoming
+4. Colorado
+5. Arizona
+0. Exit
+Please answer the following questions to advance your search further.
+Does the user want to be near mountains ? Y / N: Does the user want to be near a body of water? Y / N: Is the user looking for a family friendly campsite? Y / N: Rank	Campground	Location
+1.	Yosemite National Park	Mariposa, California
+2.	Leo Carrillo SP	Malibu, California
+3.	Upper Pines Campground	Yosemite Valley, California
+4.	Twin Lakes	Mammoth Ranger District, California
+5.	Ed Z'berg Sugar Pine Point State Park	Tahoma, California
+6.	Westport-Union Landing SB	Leggett, California
+7.	Anthony Chabot Regional Park	Castro Valley, California
+8.	Samuel P. Taylor SP	Lagunitas, California
+9.	Florence Keller Regional Park	Crescent City, California
+10.	Grizzly Creek Redwoods SP	Weott, California
+11.	Hendy Woods SP	Point Arena, California
+12.	Bridalveil Creek Group And Horse Camp	Yosemite National Park , California
+13.	Dogwood	, California
+14.	Morro Bay State Park	San Luis Obispo, California
+15.	Spruce Grove Trail Camp	Angeles National Forest, California
+16.	Whitney Portal	Mt. Whitney Ranger District, California
+17.	Julia Pfeiffer Burns SP	Big Sur, California
+18.	Black Butte Lake	Orland, California
+19.	Grover Hot Springs Sp	Markleeville, California
+20.	Chamise Flat Dispersed Camping	Kernville, California
+21.	Prairie Creek Redwoods SP	Klamath, California
+22.	Austin Creek State Recreation Area	Guerneville, California
+23.	Acton / Los Angeles North Koa	Acton, California
+24.	Butte Lake	Mineral, California
+25.	Richardson Grove Sp	Garberville, California
+26.	Yuba Pass Campground	Sierraville, California
+27.	Westport Beach / N Mendocino Coast Koa	Westport, California
+28.	Standish-Hickey SRA	Leggett, California
+29.	Loon Lake	, California
+30.	Wawona	Yosemite National Park , California
+31.	Sheldon Creek Campground	Hopland, California
+32.	Tuolumne Meadows	Yosemite National Park, California
+33.	Yucaipa Regional Park	Yucaipa, California
+34.	Andrew Molera State Park	Big Sur, California
+35.	Limekiln SP	Big Sur, California
+36.	Big Basin Redwoods State Park	Boulder Creek, California
+37.	Prado Dam	Chino, California
+38.	Agnew Meadows	Mammoth Ranger District, California
+39.	Big Pine Creek	White Mountain Ranger District, California
+40.	Lake Perris SRA	Riverside, California
+41.	Carpinteria SB	Santa Barbara, California
+42.	Millard Trail Camp	Alta Dena, California
+43.	Crane Flat	Yosemite National Park, California
+44.	Kirby Cove Campground	Sausalito, California
+45.	San Elijo Sb	Cardiff, California
+46.	Patrick's Point State Park	Trinidad, California
+47.	Big Bend	Mono Lake Ranger District, California
+48.	Convict Lake	Mammoth Ranger District, California
+49.	Pismo SB	San Luis Obispo, California
+50.	Alder Creek Camp	Big Sur, California
+51.	Angel Island State Park	Belvedere Tiburon, California
+52.	Big Meadow	White Mountain Ranger District, California
+53.	Death Valley National Park	Death Valley, California
+54.	Fremont Peak SP	Hollister, California
+55.	Wildomar Campground	Lake Elsinore, California
+56.	Caspers Wilderness Park	San Juan Capistrano, California
+57.	Pfeiffer Big Sur SP	Big Sur, California
+58.	Barton Flats	, California
+59.	Bishop Park	White Mountain Ranger District, California
+60.	Sequoia & Kings Canyon National Parks	Fresno, California
+61.	Russian Gulch SP	Fort Bragg, California
+62.	Channel Islands National Park	Ventura, California
+63.	Joshua Tree National Park	Twentynine Palms, California
+64.	Calaveras Big Trees SP	Angels Camp, California
+65.	Point Mugu SP	Ventura, California
+66.	Coyote Point	Valley Springs, California
+67.	Crystal Cove Beach Cottages	Laguna Beach, California
+68.	Blue Ridge	Wrightwood, California
+69.	Manker Flats	Claremont, California
+70.	Golden Gate National Recreation Area	San Francisco, California
+71.	Lava Beds National Monument	Tulelake, California
+72.	MacKerricher SP	Fort Bragg, California
+73.	Manresa SB	Castroville, California
+74.	Sonoma Coast SB	Bodega Bay, California
+75.	South Carlsbad SB	Encinitas, California
+76.	Boca Reservoir	Truckee, California
+77.	Lake Sonoma	Healdsburg, California
+78.	Stampede Reservoir	Truckee, California
+79.	Bandido Group Campground	San Fernando, California
+80.	Cerro Alto Camground	Templeton, California
+81.	Emigrant Group	, California
+82.	Green Valley	Fawnskin, California
+83.	Liberty Glen (lake Sonoma)	Geyserville, California
+84.	Mount Shasta City Koa	Mount Shasta City, California
+85.	Pio Pico	Jamul, California
+86.	San Gorgonio	Angelus Oaks, California
+87.	Yellowjacket	, California
+88.	Irvine Regional Park	Orange, California
+89.	Auburn State Recreation Area	Auburn, California
+90.	Mendocino Woodlands State Park	Mendocino, California
+91.	Montana de Oro SP	San Luis Obispo, California
+92.	Half Moon Bay SB	San Mateo, California
+93.	Redwood National and State Parks	Del Norte & Humboldt counties, California
+94.	Doheny SB	San Juan Capistrano, California
+95.	Millerton Lake SRA	Fresno, California
+96.	Upper San Juan Campground	Lake Elsinore, California
+97.	Pine Flat Lake	Fresno, California
+98.	Fairview Campground	Kernville, California
+99.	Mount San Jacinto SP	Palm Springs, California
+100.	Wilderness Lakes Campground	Menifee, California

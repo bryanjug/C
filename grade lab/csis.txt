@@ -1,0 +1,9 @@
+Enter the test scores to calculate the average:
+Enter the test scores to calculate the average:
+Enter the test scores to calculate the average:
+Enter the test scores to calculate the average:
+
+The average of the scores is:
+The average of the scores is:
+The average of the scores is:
+The average of the scores is:

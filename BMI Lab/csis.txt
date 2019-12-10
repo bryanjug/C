@@ -1,0 +1,8 @@
+Enter your weight in pounds and your height in inches to get your BMI value:
+Your BMI is considered overweight. Your BMI is 25.107143
+Enter your weight in pounds and your height in inches to get your BMI value:
+Your BMI is considered Underweight. Your BMI is 18.243944
+Enter your weight in pounds and your height in inches to get your BMI value:
+Your BMI is considered obese. Your BMI is 37.437870
+Enter your weight in pounds and your height in inches to get your BMI value:
+Your BMI is considered normal. Your BMI is 21.924706
