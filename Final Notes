@@ -1,0 +1,1741 @@
+Chapter 2 Notes
+scanf() allows your program to get information from standard in (stdin), which is, by default, the keyboard. You’ll use this function whenever you want your program to get the information a user types into the keyboard.
+
+Wchar_t
+Wide character
+16 bit
+//Int limits are in <limits.h>
+//Floating point limits are in <float.h>
+//macro constant message to the console
+
+Integral limits Sample
+#include <stdio.h>
+#include <limits.h>
+Int main() {
+	printf(“char: [%d, %d]\n”, CHAR_MIN, CHAR_MAX);
+	printf(“short: [%d, %d]\n”, SHRT_MIN, SHRT_MAX);
+	printf(“int: [%d, %d]\n”, INT_MIN, INT_MAX);
+	printf(“long: [%ld, %ld]\n”, LONG_MIN, LONG_MAX);
+	Return 0;
+}
+
+Floating point types
+Float
+Least precise
+Double float
+Double precision
+different
+Long double
+Extended precision
+Sample floating-point limits
+#include <stdio.h>
+#include <limits.h>
+Int main() {
+	printf(“radix: %d\n”, FLT_RADIX);
+	printf(“float: %d radix digits\n”, FLT_MANT_DIG);
+	printf(“\t[%g, %g]\n”, FLT_MIN, FLT_MAX);
+	printf(“double: %d radix digits\n”, DBL_MANT_DIG);
+	printf(“\t[%g, %g]\n”, DBL_MIN, DBL_MAX);
+	printf(“long double: %d radix digits\n”, LDBL_MANT_DIG);
+	printf(“\t[%Lg, %Lg]\n”, LDBL_MIN, LDBL_MAX);
+	Return 0;
+}
+OUTPUT:
+Radix: 2 (base) x(2^x)
+Float: 24 radix digits
+Double: 53
+Long double: 64
+Non Uniform distribution
+Floating point numbers aren’t evenly distributed
+Dense near zero
+Floating points are farther away from going away from zero
+Missing numbers
+Float value numbers may not always print out the correct output because it is less precise
+Literals
+Initializes variables
+int i = 9, j = 017, k = 0x7f;
+char c = ‘a’, c2 = 97;
+long n = 1234567L;
+Float x = 1.0F;
+Double y = 2.3;
+Long double z = 4.5L;
+Char string[] = “hello”;
+
+Special Character Literals
+\n - new line
+\t - tab
+\0 - null byte (0)
+\\ - backslash
+\b - backspace
+\r - carriage return
+\f - form feed
+\ddd - octal bit pattern (define any character by knowing the encoding by the pattern) ‘pick first 4’
+
+Constants
+Cannot be used as array dimensions(can in C++)
+Variables that can’t change/read only (compiler won’t let you change this later)
+‘Const’
+const int i = 7; //read only
+Takes up memory
+
+Macrosubstitution
+Substitution text handled by the preprocessor (not a variable) //use unless using a variable
+Alternative for defining constants
+#define SIZE 100
+int a[SIZE]; //prints int a[100];
+Arithmetic
+Floating = decimal/integer = none
+Int i = 2; int j = 3
+Int k = i / j; // k == 0! Because ⅔ is a fraction which must be dropped by integers
+Floating point suffers from round off error:
+Result may not be in set of machine #s
+How it rounds is platform specific
+Promotions and Conversions
+Only int and long are available
+Adding a short/long to an int
+The program will widen the short and continues operation; converts to int
+Adding a long to a short will lose info
+If the long is short enough to be represented as a short, then continue
+If not, don’t use it
+Casts (compiler)
+Converting one type to the other
+Expression:
+Int i = (int)x;
+Force the precision of an operation
+Float x = (float)i / j;
+Exercise: reads a real number (with a nonzero fractional part) from the keyboard and rounds it to the nearest integer. Print out the original number and the rounded result
+scanf() {
+Int i = 5; int k = 7;
+int c = (int)i / k;
+Float x = (float)i / k;
+	printf(int c);
+	printf(Float x);
+	Return 0;
+}
+Algorithm Design
+Input set # (1, 5, 10, 15)
+Finding the highest value
+Sets
+Set named largest
+Set named smaller
+2. Comparing sets
+if # === largest > smaller
+If there is no other value in the set, then go to step 3
+Put # in series: largest
+Step 2.2.3
+2. If # === largest < smaller
+If there is no other value in the set, then go to step 3
+Put # in series: smaller
+Repeat 2.2.3
+2.   Print Results
+Output
+15
+The sizeof() operator returns the number of bytes used to store an object on a host computer.
+What compiler directive allows for the inclusion of content from a header file into a source code file? 
+#define
+#include <stdio.h>
+//macro constant message to the console
+#define MESSAGE "Hello World"
+/* Program to display Hello World */
+int main()
+{
+    printf(MESSAGE);
+    return 0;
+}
+Select ALL the lines that will be removed before the source code is compiled? 
+PARTIAL
+4
+Hexadecimal constants are written with a leading 0x followed by 0-9, A-F, a-f. Examples are, 0x12, 0xFF, 0xbc?
+True
+Are the following examples of character constants? 
+'a', 'b', '\t', '5'
+True
+If “a”, “b”...
+False 
+Declare an integer variable called coordinate_1.
+int coordinate_1;
+Data types define the amount of                             [ Select ]                          ["Storage", "storage"]            that must be                             [ Select ]                          ["allocated"]             for each variable. 
+Data types define the                             [ Select ]                          ["interpretation", ""]            given to each                             [ Select ]                          ["storage", ""]            location.
+Data types define the range of values a variable may take.
+Data types define a set of                             [ Select ]                          ["", "operations"]            that may be performed on the variable.
+Data types define a set of operations that may be performed on the variable?
+True
+The only guarantee by C for real types is sizeof(float) <= sizeof(double). The C standard does not state how much precision the float, double, and long double provide. 
+True
+Select all the integral types.
+char
+Short int
+Int
+Unsigned long int
+The sizeof() operator returns the number of bytes used to store an object on a host computer.
+True
+Declare a variable named x using the smallest possible datatype to store the value 44,444
+WRONG: unsigned short int x;
+short product = (short) (13.9 * 3);
+What value will be stored in the variable product?
+WRONG: 41
+int quotient;
+quotient = 1 / 4;
+What value is stored in the variable quotient?
+WRONG: ¼
+//A computer program to say hello to the world.
+ 
+#include <stdio.h>
+int main()
+{
+    printf("Hello World!\n");
+    return 0;
+}
+What line must be present to use both the scanf() and printf() functions? 
+3
+//A computer program to say hello to the world.
+ 
+#include <stdio.h>
+int main()
+{
+    printf("Hello World!\n");
+    return 0;
+}
+What line marks the beginning of the main() function? 
+5
+printf("%-3.5f", 1.123456789);
+printf("%3.5f", 1.123456789);
+will correctly show the value 1.123456789 with five digits of precision and the left-justification and right justification, as follows:
+1.12346
+        1.12346
+False
+Write the string Hello World! to the console window using the printf() function. The string will be left-justified and uses a field size of 20.
+printf("%-20s\n", "Hello World!");
+Standard out (stdout) is also the name given to the console window.
+True
+#include <stdio.h>
+#define MESSAGE "Hello World"
+int main()
+{
+    printf(MESSAGE);
+    printf("%s", MESSAGE);
+    return 0;
+}
+The printf() statements display the message Hello World.
+True
+Select all possible items that are reserved words and cannot be used as variable names.
+WRONG: execute
+The contents of the user-defined header file, csciMath.h, can be added to a source code file by which of the following code samples? 
+#include “csciMath.h”
+What compiler directive allows for the creation of a macro constant name and value?
+#define
+Octal constants are written with a leading zero followed by digits 0-8?
+False
+Select all the real types.
+Wrong: int, long double
+ Declare a float with the variable name pi and initialize it with the value 3.14. Use any good rules of thumbs and good practices. 
+Wrong: Float x = 3.14F;
+Identify the level of precision after the decimal point for a float and double.
+6, 15
+double d = 1.123456789;
+float f = d;
+What type of conversion is taking place?
+Implicit
+...
+int main()
+{
+   int x = 255;
+   //your printf() statement
+   return 0;
+}
+Write the simplest printf() statement to display the value in the variable x. 
+Wrong: printf(x);
+Write the constant value 1.12345678 that is a float to the console window using the printf() function. Display the value using three digits of precision. 
+Wrong: printf("%-3f", 1.12345678);
+What symbol is used to provide the address of the variable used when using the scanf() function. 
+Wrong: ;
+Select all possible items that are reserved words and cannot be used as variable names.
+Default, continue
+#include <stdio.h>
+#define PI 3.14
+int main()
+{
+    int sum1, sum2;
+    sum1 = 5 * PI;
+    sum2 = PI * PI;
+    return 0;
+}
+How many times does the preprocessor replace the macro constant name with the value? 
+3
+The C preprocessor assumes the user-defined header file is located in the same directory where the program is compiled, if the header file name is just used? 
+True
+If "A" represents  two bytes, how many bytes is used to both store 'B' and 'C'?
+2
+The scanf() function skips any leading whitespace characters for all format specifiers. 
+False
+#include "stdio.h"
+The above code snippet is the correct way to include the Standard Input/Ouput declarations for using functions, such as, the printf()and scanf() functions?
+False
+How many bytes are in the string constant "CSCI 112"? 
+9
+Declare a datatype named pi that can store the following value 3.14159265358979
+Float pi = 3.14159265358979F;
+The sizeof() operator returns the number of bytes used to store an object on a host computer. 
+True
+ Match the control strings with their definition
+%d
+ 
+               integer or decimal (base 10) format             
+%ld
+ 
+               long decimal format             
+%f
+ 
+               floating point format             
+%lf
+ 
+               double format             
+%c
+ 
+               character format             
+%s
+ 
+               character string format             
+%u
+ 
+               unsigned decimal             
+%lu
+ 
+               unsigned long decimal format             
+%e
+ 
+            Scientific notation       
+%o
+ 
+               octal format             
+%x
+ 
+               hexadecimal format             
+Declare a float with the variable name pi and initialize it with the value 3.14. Use any good rules of thumbs and good practices. 
+Float pi = 3.14F;
+A variable does not have to be declared, as long as you immediately assign a value.
+False
+An unsigned value means it contains both positive and negative values, while signed value means it contains only positive values.
+False
+The compiler handles the compiler directives? 
+False
+Match the definition for each integral type
+char
+ 
+               A whole number             
+int
+ 
+               One single byte of memory             
+short
+ 
+               An integer, possibly of reduced range             
+long
+ 
+               An integer, possibly of increased range             
+unsigned
+ 
+               An integer with no negative range             
+Partial: 60%
+The [file1] header file can be visually reviewed to determine the range of an integer type for a particular implementation?
+Limits.h
+int main()
+{
+   int 1temp,
+        temp2;
+   int _temp1;
+   _temp2 = 35;
+   return 0;
+}
+int main()
+{
+   int 1temp,
+        temp2;
+   int _temp1;
+   _temp2 = 35;
+   return 0;
+}
+Identify the line(s) with the syntax errors.
+3, 6
+What line identifies the element required to begin execution of every C program?
+WRONG: 3
+int a, b;
+scanf("%5d %5d", &a, &b);
+printf("%d == %d\n", a, b);
+If the value provided to stdin is 1234567890, the value stored in a is ____and b is _____
+Identify the incorrect property of the definition of a unsigned char
+Min: -128
+Max: 128
+Chapter 4 Lecture: Operators
+Fundamental logic model
+Condition id the decision point
+Result instructs programs to take an action
+All languages support decision making
+Operators
+Selection statements
+Operator
+Symbol representing an operation
+Top of list evaluated first
+C has many built in
+IGNORE bitwise
+Relational operators have their own order
+Behave like functions, but aren’t
+Why use operators?
+Make decisions
+Assign values to variables
+Finding the selection between true and false
+Properties
+Declare variables
+Compiler error
+Var = 200;
+Basic declaration + assignment
+Int var;
+Var = 1000;
+Declaration, initialization, and assignment
+Int var_a;
+Var_b = 23;
+Var_a = var_b;
+Low precedence
+Combined operators
+Leads to runtime error
+Var += 100; //var = var + 100;
+Good example
+Int var = 1;
+Var += 10; //result is 11
+Syntax
+Int var_a;
+Var_a = 1 + 1;
+Combine operators
+Int var_a = 1,
+Var_b = 1,
+Result;
+Result = var_a + var_b * 13;
+Numbers and strings
+Allows program to compare numerical and string values against each other
+Result = 1 or more paths
+Declare:
+Type variable;
+Int var;
+Var = 12;
+Initialize: (declaring and sign in one line)
+Int var = 12;
+Arithmetic Operators
+% prints remainder
+13 % 10 = 3
+5 + 3;
+X = var_a + var_b;
+Is C a boolean language?
+C is semi-boolean
+True is a non-zero number, including negative values
+False is zero
+Microsoft and xcode
+Always yield 0 for false
+Yields 1 for true
+Relational Operators
+<, >, <=...
+Logical Operators
+&& - logical and
+!a - negation
+a || b - logical or
+Logical AND
+Var_a = true;
+Var_b = false;
+Var_a && var_b = false
+Logical OR
+var_A = true;
+Var_b = false;
+var_A || var_b = true
+Logical negation
+Var_a = true;
+Var_b = false;
+!(A<D>C)
+= (A<D = T, D>C = T)
+ = !(T) === (F)
+Other Operators
+Increment operator
+Int var = 15;
+Var ++;
+Var = var + 1
+Decrement operator
+sizeof() operator
+Returns the amount of storage in bytes required to store the object
+Pass in a variable/data type
+Int y = sizeof(int);
+Int z = sizeof(var);
+ternary/conditional operator
+Alternative to the if statement
+False: executes the right size of statement
+
+Var = 15
+A = 2
+B = 0
+B = var++ + a;
+ = 15 + 2 = b
+Post increment happens last to the right of the variable
+Pre increment happens left of variable
+A = 2
+B = 0
+Var  = 15
+Character type test
+Example: changing lower to upper case:
+Int newvalue = toupper(‘c’);
+Int isalnum (int c);
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main()
+{
+	while (1)
+	{
+		int age;
+		printf("Enter an age: ");
+		scanf("%d", &age);
+		if (!(age < 13) && !(age > 19))
+			printf("Age is between 13 and 19!!!\n");
+	}
+	return 0;
+}
+Csis.txt has results after first run (use fprintf)
+Speed.c = name
+Try to use //
+System pause isn’t required
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#define kilometers 1.609
+
+//made by Bryan, Mason, Marco, Everardo
+int main(void)
+{
+	double miles, //input in miles
+			Kms; //output in kilometers
+		printf("Enter miles to convert to Kilometers: "); //read distance in miles
+		scanf("%lf", &miles);
+		kms = KMS_PER_MILES * miles; //convert miles to kilometers
+			printf("That equals %4.2f kilometers.\n, kms); //display distance in km
+		return 0;
+}
+
+#include <stdio.h>
+#include "stdafx.h"
+
+FILE *output;
+
+int main()
+{
+	int a = 15;
+	int b = 30;
+	int sum;
+
+	sum = a + b;
+
+	printf("%d + %d = %d\n", a, b, sum);
+	output = fopen("csis.txt", "w");
+	fprintf(output, "%d + %d = %d\n", a, b, sum);
+
+	printf("Hello World!");
+	fprintf(output, "Hello World!");
+
+	fclose(output);
+	return 0;
+}
+
+int main2()
+{
+	int 1temp,
+	temp2;
+	int _temp1;
+	_temp2 = 35;
+	return 0;
+}
+Number systems
+Binary
+400 years old
+Base 2 number system
+Uses two number to rpresent all other numbers
+00001101b //binary string(must be 8)
+2^3 + 2^2 + 2^0 = 8+4+1 = 13
+High and low bits
+Most significant/least significant
+greatest/ least value
+00000001 ←--- least significant
+Example: (Decimal to binary conversion)
+103
+01100111
+64+32+4+2+1 = 103
+Base 16 (uses 16 digits to represent 16 values)
+16^0-16^3
+10 - a
+11 - b
+12 - c 
+14 - e
+15 - f
+Decimal to Hex conversion
+2029/16 = 126 remainder d(13)
+126/16 = 7 remainder e(14)
+7/16 = 0 remainder 7
+0x7ED = 12 bit value
+Each piece represents 4 set pair value 7ED = (3) x 4 = 12
+0x7E
+= 0x7(14) ---> 4+2+1 = 7 and 8+4+2 = 14
+	= 01111110
+Increments/decrements
+#include <stdio.h>
+
+int main(void) {
+	int a, b, c;
+
+	a = 0;
+	b = 0;
+	c = 0;
+
+	a = ++b + ++c; //increment is added then stored to A 
+	printf("%d	%d	%d\n", a, b, c);
+
+	a = b++ + c++; //post-increment original values are added and stored into A, b and c variables set as dummy variables using old variations, therefore c = 1 b = 1
+	printf("%d	%d	%d\n", a, b, c);
+
+	a = ++b + c++;
+	printf("%d	%d	%d\n", a, b, c);
+
+	a = b-- + c--;
+	printf("%d	%d	%d\n", a, b, c);
+
+	return 0;
+}
+111100
+011010
+_______
+1010110
+
+100
+010
+___
+110
+Signed vs Unsigned
+Char value from 127 to 128
+unsigned char myChar; //0 to 255 positive range
+00010011 ---> 19 and -19
+Flip bits
+11101100
+2) add 1
+11101100 + 1 == 11101101 = -19
+00010010 + 1 = 0010011 = 19
+Convert -15 to binary:
+00001111 ----> 11110001
+If unsigned = 128 + 64 + 32 + 16 + 1 = 241
+If signed = check most significant bit, if # = 1 in the most significant bit, then flip
+---> 00001110 + 1 = 00001111
+Normal conversion at significant bit = 0
+10000000 ---> 01111111 + 1 = 10000000
+254 - 11111110 ---> 00000001 + 1 = 00000010 //first digit is zero, which means you'll get a positive
+0 1111 1110
+1 0000 0001 + 1
+= 1 0000 0010 //takes 9 bits to represent 254 as a negative
+Chapter 6 Functions
+Printf
+#include <stdio.h>
+#include <ctype.h>
+isAlpha
+isSpace
+Function properties
+Collection of statements
+Small, well defined tasks
+Each has a unique name
+Defined at file scope
+Bounded by braces
+May or may not return value
+May or may not take arguments
+
+Float getPurchasePrice(void);
+
+Void main(void) {
+	Float purchasePrice,
+	purchasePrice = getPurchasePrice();
+}
+Float getPurchasePrice() {
+	Float purchasePrice;
+	printf(“Enter the purchase price: ”);
+	scanf(“%f”, &purchasePrice);
+	Return purchasePrice;
+}
+Int main always returns 0
+Void = no parameters in the function and the function returns nothing
+Function declaration
+Int getNumberPayments(void);
+Float calculatePrincipal(float, float);
+Float calculateMonthlyPayment(float, float, float, int); //if nothing is returned, float should change to void
+Void displayResults(float, float);
+
+Function definition
+int getNumberPayments() {
+	Int numberPayments;
+	printf(“Enter the number of payments, as 36, 48, or 60: ”);
+	scanf(“%d”, &numberPayments);
+	Return numberPayments;
+}
+Float calculatePrincipal(float purchasePrice, float downPayment) {
+	Return purchasePrice = downPayment;
+}
+Float calculateMonthlyPayment(float principal,
+					Float downPayment,
+					Float annualRate,
+					Int numberPayments)
+{
+	Return ((annualRate / 12) * principal) /
+		(1 - pow((1 + (annualRate / 12)), numberPayments));
+}
+Void displayResults(float principal, float monthlyPayments) {
+	printf(“amount borrowed = $%.2f\n”, principal);
+Function calls and program execution flow
+Order of calls
+Handling return values
+Aligning functions with the design
+Scope identifiers
+Function names
+Variables
+Global
+Local
+Parameters //function parameter acts as doorway between data hand offs
+foo(int a)
+Main()
+Int a = 5;
+foo(a);
+A = 5
+A = 5
+If foo(&a);
+A = 5
+A = *
+Int main(void) { //only visible and acceptable in main class
+}
+Int a = 5;
+main()
+Int a = 4; //example of re-declaring
+printf(....) = 4
+
+Int a = 5
+main()
+Int a = 6;
+if(...)
+Int a = 10
+printf(...) = 6
+Math functions
+#include <math.h>
+
+#include<stdio.h>
+//create function prototype
+void displaySquare();
+void displayTriangle();
+Print out the shapes through display:
+int main() {
+	displaySquare();
+	displayTriangle();
+	displayTriangle();
+	displaySquare();
+	return 0;
+}
+
+void displaySquare()
+{
+	printf("*********\n");
+	printf("*       *\n");
+	printf("*       *\n");
+	printf("*********\n");
+}
+
+void displayTriangle()
+{
+	printf("    *\n");
+	printf("   * *\n");
+	printf("  *   *\n");
+	printf(" *     *\n");
+	printf("*********\n");
+}
+
+#include<stdio.h>
+void displaySquare();
+void displayTriangle();
+void algorithm1();
+void algorithm2();
+
+int main() {
+	algorithm2(); //printing an algorithm in an algorithm
+	return 0;
+}
+void displaySquare()
+{
+	printf("*********\n");
+	printf("*       *\n");
+	printf("*       *\n");
+	printf("*********\n");
+}
+void displayTriangle()
+{
+	printf("    *\n");
+	printf("   * *\n");
+	printf("  *   *\n");
+	printf(" *     *\n");
+	printf("*********\n");
+}
+void algorithm1()
+{
+	displaySquare();
+	displaySquare();
+	displaySquare();
+}
+void algorith2()
+{
+	displayTriangle();
+	displayTriangle();
+	displayTriangle();
+}
+
+Int foo(double);
+main()
+	Int a = 5;
+		foo(a);
+Int foo(double val);
+Convert the unsigned binary value, 1000 0000, to decimal form.
+128.0
+Select the correct binary value for the decimal value 99.
+ 0110 0011
+Convert the unsigned binary value, 1111 1111, to decimal form.
+255
+Convert the unsigned binary value, 1110 1111, to hexadecimal value. Begin all hex answers with 0x, e.g. 0xA5.
+0xEF
+Convert the hexadecimal value, 0x58, to decimal form.
+88.0
+Convert the unsigned binary value, 1110 0010, to hexadecimal value. Begin all hex answers with 0x, e.g. 0xA5.
+0xE2
+Convert the signed binary value, 0000 1111, to decimal.
+15.0
+Convert the decimal value, -64, to binary.
+0100 0000
+Convert the signed binary value, 1110 1111, to decimal.
+-17
+Convert the unsigned binary value, 0000 1011, to decimal form. 
+11
+Convert the hexadecimal value, 0xB1, to decimal form.
+177
+Convert the unsigned binary value, 0000 0010, to hexadecimal value. Begin all hex answers with 0x, e.g. 0xA5.
+0x2
+Convert the signed binary value, 1111 1111, to decimal.
+-1
+Convert the decimal value, -254, to binary. 
+0001 0000 0010
+ 
+Chapter 7
+Decision making (2 available constructs)
+If-else
+Ternery is another statements for if-else
+Case
+Used in conjunction with operators
+Basic if statement
+if(<expresion>) {
+	<statement1>
+	<statement2>
+} //makes it so only statements in brackets are printed
+Else
+	<statement-n>
+if (pass != record)
+	printf(...)
+	exit(1);
+
+Showmain screen;
+Nesting = putting an if in an if statement
+if(...)
+	Int a = 5;
+	if(...)
+		Int b = 6;
+if(a = 5) {
+	Int b = 4;
+	if (b = 4)
+{	
+		Int sum = a + b;
+	}
+}
+Int temp;
+if (a = 5) {
+	Int b = 4;
+	if (b = 4)
+	{
+		Int sum = a + b;
+		Temp = sum;
+	}
+}
+If-else if-else
+if(<expression>)
+	<statement 1>
+Else if(<expression>)
+	<statement2>
+Else
+	<statements3>
+printf(“enter a char: “);
+scanf(“%c”, &userInput);
+if(userInput == ‘a’)
+{
+	printf(...)lab
+}
+	Return 0;
+if(userInput == ‘a’)
+{
+	…
+}
+Else
+{
+	createLogEntry();
+}
+	Return 0;
+
+printf(“enter a char: “);
+scanf(“%c”, &userInput);
+if(userInput == ‘a’)
+{
+	printf(...)
+}
+	Return 0;
+Else if(userInput == ‘a’)
+{
+	…
+}
+Else
+{
+	createLogEntry();
+}
+	Return 0;
+
+If (
+	…
+Else if(
+	…
+Else if(
+	…
+Else
+Switch statement
+Condition must be an int
+switch( UserInput ) {
+	Case 1000: stmt;
+			: n;
+			: break; //executes code outside of bracket and stops all cases
+	Case 1001: stmt, n, or break;
+	Default: stmt or n; //no break statements; executes if non are selected
+}
+If there’s no break, the code will continue to execute under the case
+if(userInput == ‘a’) {
+	Return 1;
+}
+Else
+	Return 0;
+
+Int val = (userInput == ‘a’) ? 1 : 0 j //if-else statement
+if(userInput == ‘a’) {
+	Return 1;
+} Else {
+if (userInput == ‘b’) {
+		Return 2;
+}
+else
+	Return 0;
+
+Int userVal = (userInput == ‘a’) ? 1 : (userInput == ‘b’) ? 2 : 0;
+int GetStuStatus() {
+	char isStudent;
+	printf("Are you a high school or college student? (Y/N): ");
+	scanf("%c", &isStudent);
+
+	if (isStudent == 'Y' && isStudent => 18) {
+
+	}
+}
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MILSTATUSYES 'Y'
+#define MILSTATUSNO 'N'
+#define TRUE 0
+#define FALSE -1
+
+
+int GetUserAge(); //taking user's age and returns ages between 15 and 100
+GetMilStatus(int);
+
+int main() {
+	int age = GetUserAge();
+	return 0;
+}
+
+int GetUserAge() {
+	int age;
+	printf("Enter your age: ");
+	scanf("%d", &age);
+
+	if (age > 15 || age > 100) {
+		printf("You have entered an invalid age.");
+		exit(1);
+	} else {
+		return age;
+	}
+}
+
+int GetMilStatus(int age) {
+	char status;
+	if (age < 17)
+		return 0;
+	else {
+		printf("Are you a veteran or active duty military? (Y/N): ");
+		scanf("%c", &status);
+		if (toupper(status) == MILSTATUSYES)
+			return 1;
+		else if (toupper(status) == MILSTATUSNO)
+			return TRUE;
+		else
+			return FALSE; //return -1; = false
+	}
+}
+Convert the hexadecimal value, 0xF, to decimal form. 
+15
+Convert the hexadecimal value, 0x3D, to decimal form. 
+61
+Convert the signed binary value, 1111 0011, to decimal.
+-13.0
+Convert the hexadecimal value, 0x80, to decimal form. 
+128
+Convert the unsigned binary value, 0000 0010, to hexadecimal value. Begin all hex answers with 0x, e.g. 0xA5.
+0x2
+Convert the decimal value, -128, to binary. 
+1000 0000
+ 1st Speed lab:
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <float.h>
+
+FILE *output;
+
+int main(void) {
+		
+	const int meters = 1600;
+	const int secondsperhour = 3600;
+	const float miles = 425.5F;
+	const float hours = 7.5F;
+
+	float hourstraveled;
+	float secondstraveled;
+
+	hourstraveled = ((float)miles) / ((float)hours);
+	secondstraveled = (((float)miles * (int)meters)) / (((int)secondsperhour * (float)hours));
+		printf("%f", hourstraveled);
+		output = fopen("csis.txt", "w");
+		fprintf(output, "%f", hourstraveled);
+		printf("%f", secondstraveled);
+		fprintf(output, "%f", secondstraveled);
+
+		fclose(output);
+		return 0;
+}
+
+#include <stdio.h>
+#include <math.h>
+void compare();
+FILE *output;
+int main(void) {
+	int i;
+	output = fopen("csis.txt", "w");
+	for (i = 1; i <= 4; ++i)
+		compare();
+	fclose(output);
+	return 0;
+}
+void compare() {
+	int a, b, c, d;
+	int largest;
+	int smallest;
+	printf("Enter four numbers:\n");
+	scanf("%d %d %d %d", &a, &b, &c, &d);
+	fprintf(output, "Enter four numbers:\n");
+	{
+		if (a > b && a > c && a > d) {
+			largest = a;
+		}
+		else if (b > a && b > c && b > d) {
+			largest = b;
+		}
+		else if (c > a && c > b && c > d) {
+			largest = c;
+		}
+		else if (d > a && d > b && d > c) {
+			largest = d;
+		}
+		if (a < b && a < c && a < d) {
+			smallest = a;
+		}
+		else if (b < a && b < c && b < d) {
+			smallest = b;
+		}
+		else if (c < a && c < b && c < d) {
+			smallest = c;
+		}
+		else if (d < a && d < b && d < c) {
+			smallest = d;
+		}
+	}
+	printf("This is the largest number %d\n", largest);
+	fprintf(output, "This is the largest number %d\n", largest);
+	printf("This is the smallest number %d\n", smallest);
+	fprintf(output, "This is the smallest number %d\n", smallest);
+}
+
+Math not in main
+Main () {
+Int sum;
+	Sum = Add2Num(5, 2);
+Add 2 num(int operand1, int operand2) {
+	Int sum;
+	Sum = operand1 + operand2;
+Return sum;
+}
+
+Chapter 8 lesson
+Loops - if must be true
+All must stop
+Sentinel control
+Ends loop once sentinel
+Endfile-controlled
+Ends loop after EOF control character
+Incrementing versus decrementing
+While loop
+While (loop condition) {
+Statement
+#of repetition is known
+Input list data ends with special value
+Input of a single list of data from a data file
+Condition can be met
+Int temp;
+while(grade < 100)
+{
+	Int grade = 20;
+
+
+Int main(void) {
+	Int index = 0;
+While index…
+
+
+
+#include <stdio.h>
+
+int main(void) {
+
+	int index = 0;
+
+	while (index < 10)
+	{
+		printf("%d. Hello World!\n", index +1); //loops printf 10 times
+		index++;
+	}
+	return 0;
+}
+
+#include <stdio.h>
+
+int main(void) {
+
+	int index = 10;
+
+	while (index >= 1)
+	{
+		printf("Hello World!\n", index - 1);
+		index--;
+	}
+	return 0;
+}
+
+#include <stdio.h>
+
+int main() {
+
+	int index = 0;
+
+	while (index < 10)
+	{
+		printf("Hello World!\n", index + 1); //infinitely prints 
+
+	}
+	return 0;
+}
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main() {
+
+	int index = 0;
+	int count;
+
+	printf("enter iteration count: "); //prints out # of printf commands
+	scanf("%d", &count);
+
+	while (index < count)
+	{
+		printf("Hello World!\n", index + 1);
+		index++;
+	}
+	return 0;
+}
+
+For Loop
+When to use it
+# repetition is known
+Input list data ends with special value
+Input of a single list of data from data file
+Syntax
+for(initial expression; loop condition; loop expression
+{
+Statement
+}
+For Loop Structure
+Int main(void) {
+	Int counter;
+	for(counter = 2; counter >= 0; counter15) { //body, condition, expression
+	printf("enter : "); //prints out # of printf commands
+while (index < 15)
+	{
+		printf(2 ^ ); //loops printf 10 times
+		index++;
+
+}
+	Return 0;
+}
+
+#include <stdio.h>
+#include <math.h>
+
+#define BASE2 2
+
+int main() {
+
+	int power;
+	for (power = 0; power < 15; power++)
+	{
+		printf("%.0f\n", pow(BASE2, power)); //prints out powers of 2^1-15
+	}
+
+	return 0;
+}
+Do-while Loop
+Syntax:
+
+Do
+{
+	Statement; //always executes body once
+} while(condition);
+When to use
+Terminates a semicolon
+Repeated interactive input of data until a value within a valid range is reached
+int main() {
+	int selection;
+	do
+	{
+		printf("0. Exit\n");
+		printf("1. Menu item 1\n");
+		printf("2. Menu item 2\n");
+		printf("3. Menu item 3\n");
+		printf("4. Menu item 4\n");
+		printf("Select a menu item: ");
+		scanf("%d", &selection);
+	} while (selection); //runs != 0 to terminate command on exit
+		
+	return 0;
+}
+Switch Statement:
+Int main() {
+	Int age;
+	Char really;
+	puts(“enter your age:”);
+	scanf(“%d”, &age);
+	switch(age/20) {
+	Case 0:
+		puts(“youth”);
+		Break;
+	Case 1:
+		puts(“prime”);
+		Break;
+	Case 2:
+		puts(“aches and pains”);
+		Break;
+	Case 3:
+		puts(“golden”);
+		Break;
+	Default:
+		printf(“are you really %d?\n”, age);
+		scanf(“ %c”, &really);
+		If (really == ‘Y’ || really == ‘y’)
+			puts(“congrats!”);
+		Else
+			puts(“i didn’t think so!”);
+		}
+		Return 0;
+}
+//count from 1 to n
+I = 1;
+While (i <=n) {
+	printf (“%d”, i);
+	I += 1;
+}
+//shorter version
+I = 1;
+While (i <= n)
+	printf(“%d”, i++);
+//count from 1 to n
+I = 1;
+Do 
+	printf(“%d”, i++);
+While (i <= n); 
+//count from 1 to n
+For (i = 1; i <= n; i++) //may be ++i based on format
+	printf(“%d”, i);
+
+Continue 
+Cycles a loop
+goto
+If in a switch, use goto
+Useful for exciting nested loops and switches
+//finds an odd number in which the sum equals 7, assuming 2 digits only
+#include <stdio.h>
+#include SIZE 5
+Int main() {
+	Int nums[SIZE] = {10, 21, 32, 43, 54};
+	Int i;
+	For (i = 0; i < SIZE; ++i) {
+		Int dig1, dig2;
+		If (nums[i]%2 == 0)
+			Continue; //skips event
+		Dig2 = nums[i]%10;
+		Dig1 = nums[i] / 10;
+		If (dig1 + dig2 == 7) {
+			printf(“found %d\n”, nums[i]);
+			Break;
+		}
+	}
+	Return 0;
+}
+#include <stdio.h>
+#include <math.h>
+
+FILE * output;
+
+int fibCalculation(int fib);
+
+int main() {
+	int firstNumber = 0, c, fib;
+	printf("Enter the number of fibonacci numbers in the series: \n");
+	scanf("%d", &fib);
+	output = fopen("csis.txt", "w");
+	fprintf(output, "Enter the number of fibonacci numbers in the series: \n");
+
+	printf("The total of %d numbers from the fibonacci series are: \n");
+	fprintf(output, "The total of %d numbers from the fibonacci series are: \n");
+
+	for (c = 1; c <= fib; c++) {
+		printf("%d\n", fibCalculation(firstNumber));
+		fprintf(output, "%d\n", fibCalculation(firstNumber));
+		firstNumber++;
+	}
+	fclose(output);
+	return 0;
+}
+
+int fibCalculation(int fib) {
+	if (fib == 0)
+		return 0;
+	else if (fib == 1)
+		return 1;
+	else
+		return(fibCalculation(fib - 1) + fibCalculation(fib - 2));
+}
+
+For Loop
+Know loops in advance
+While loop
+Know loops in advance
+Not known # of loops
+Do while loop
+Not known # of loops
+Getchar() function
+EOF - end of file marker
+Ends of file
+Int getchar(void)
+Input = getchar();
+EOF(-1)
+while ((c = getchar()) != EOF)
+
+#include <stdio.h>
+
+FILE *output;
+
+int main() {
+	int inputCharacter;
+
+	while ((inputCharacter = getchar()) != EOF) { //prints the input twice until ctrl Z is pressed
+		printf("%c", inputCharacter);
+	}
+
+	return 0;
+}
+Putchar() example:
+#include <stdio.h>
+
+FILE *output;
+
+int main() {
+	int inputCharacter;
+
+	while ((inputCharacter = getchar()) != EOF) { //prints the input twice until ctrl Z is pressed
+		putchar(inputCharacter);
+		putchar('C');
+	}
+
+	return 0;
+}
+
+main()
+	fopen(..);
+	foo();
+
+Output .txt file:
+“R” = read only
+“W” = rewrite over the file every build
+“A” = adds data to old data
+
+#include <stdio.h>
+#include <stdlib.h>
+#define FILENAME "csis.txt"
+#define WRITEMODE "w"
+
+FILE *output;
+
+int main() {
+
+	int a = 5, b = 10;
+
+	if (!(output = fopen(FILENAME, WRITEMODE))) {
+		printf("error with opening the file!\n");
+		exit(1);
+	}
+
+	fprintf(output, "%d %d", a, b);
+	fclose(output);
+
+	return 0;
+}
+
+Int main() {
+	Int num = 0;
+while(1) {
+	scanf(%d, &num); //finds inputs and adds them in a loop
+	Num += num;
+	Num_input++;
+}
+Return 0;
+}
+
+Pass by reference:
+//prototypes
+Void foo(int * );
+
+//function calls z = 10;
+foo(&z);
+//function implementation
+Void foo(int *val)
+
+Example:
+
+Void foo(int *num);
+
+Int main(void) {
+	Int num = 5;
+	printf(“%d\n”, num);
+	foo(&num);
+	printf(“%d\n”, num);
+	Return 0;
+}
+Void foo (int *num) {
+	printf(“%d\n”, *num);
+	*num = *num + 1;
+	printf(%d\n”, *num);
+}
+
+#include <stdio.h>
+
+FILE *output;
+
+void CalcSumDiff(int*, int*, int, int); //parameters
+
+int main() {
+
+	int sum = 0, diff = 0, op1 = 5, op2 = 10;
+	int status;
+	printf("sum = %d\ndiff = %d\nop1 = %d\nop2 = %\nStatus = %d\n", sum, diff, op1, op2, status);
+
+	CalcSumDiff(&sum, &diff, op1, op2);
+
+	printf("sum = %d\ndiff = %d\nop1 = %d\nop2 = %d\nStatus = %d\n", sum, diff, op1, op2, status);
+	return 0;
+}
+
+void CalcSumDiff(int *sum, int *diff, int op1, int op2) {
+	int status = 0;
+
+	*sum = op1 + op2;
+	*diff = op1++ - op2++;
+	status = 1;
+	return status;
+}
+
+#define _CRT_SECURE_NO_WARNINGS
+/*********************************************************************************************
+Student Name: Bryan Jug
+Student No.: 011333579
+Date:
+IDE version:
+OS version:
+Lab Assignment:
+*********************************************************************************************/
+/*********************************************************************************************
+
+Analysis
+
+Inputs (data description your app accepts):
+card.txt file which contains a 52 cards in the deck.
+
+Outputs (data description data your program produces and in what formats):
+Player hands in a point system.
+Dealer hands in a point system.
+
+Constraints (list ALL found in problem statement):
+Use C file extension.
+Output to csis.txt
+Must use function named playHand with parameters: dealerWin and ranOut using semi-boolean values.
+Function playHand must track total wins and check if cards have run out.
+Must use function named getCard get next card and assign point value.
+Function getCard must signal no more cards when EOF is reached.
+Must count dealer wins using variable dealerTotal.
+Must count player wins using variable playerTotal.
+Must use a betting system which doubles bets for blackjack hands.
+No global variables are to be used.
+
+Formulas (in any):
+
+*********************************************************************************************/
+/*********************************************************************************************
+Design (Requires one level of step-wise refinement for all steps)
+
+1.
+// Get cards method
+// Check if EOF is true, meaning there are no more card in file.
+//  Assign value point to 0, meaning cards have run out.
+// Read next character/card in file.
+// Set points to appropriate value from 1 to 11.
+//  (10 represented as 'T' in file.)
+
+*********************************************************************************************/
+/*********************************************************************************************
+Testing
+
+*********************************************************************************************/
+//Implementation starts here
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+
+FILE *fp;
+
+int getCard();
+int getBet(int betAmount);
+int playHand(int ranOut, int playerWin, int dealerWin, int playerCardSum, int dealerCardSum);
+int displayBet(int playerCardSum, int dealerCardSum);
+int convert_card(char playerCard1, char playerCard2, char playerCard3, char dealerCard1, char dealerCard2, char dealerCard3, int playerCardSum, int dealerCardSum);
+
+int main() { //should repeatedly call playHand() and keep track of the total # of wins
+
+	fp = fopen("csis.txt", "w");
+
+	int endCondition = 0;
+
+	while (!endCondition) {
+
+		int ranOut = 0; int dealerWin = 0; int playerWin = 0; int betAmount = 0; int dealerCardSum = 0; int playerCardSum = 0;
+		int doubleBet = 0;
+		int playerCard1 = 0; int playerCard2 = 0; int playerCard3 = 0; int dealerCard1 = 0; int dealerCard2 = 0; int dealerCard3 = 0;
+
+		getCard();
+		getBet(betAmount);
+		playHand(ranOut, playerWin, dealerWin, playerCardSum, dealerCardSum); //calls functions to main()
+		displayBet(playerCardSum, dealerCardSum);
+		convert_card(playerCard1, playerCard2, playerCard3, dealerCard1, dealerCard2, dealerCard3, playerCardSum, dealerCardSum);
+
+		if (ranOut) {
+			return 0; //if user ran out of cards, end the solution
+		}
+
+		else if (dealerWin) {
+			++dealerWin;
+		}
+
+		else {
+			++playerWin;
+		}
+
+		printf("The total of wins for the dealer is: %d\n", dealerWin);
+		printf("The total of wins for the player is: %d\n", playerWin);
+
+		return 0;
+	}
+
+	fclose(fp);
+	return 0;
+}
+
+int getCard() { //writes out the card and its score
+
+	int value = 0;
+
+	printf("You're given 2 cards, as well as the dealer.\n");
+
+	int dealerCard1 = 5; int playerCard1 = 4;
+	int dealerCard2 = 7; int playerCard2 = 10;
+	int dealerCard3 = 2; int playerCard3 = 10;
+
+	int playerCardSum = playerCard1 + playerCard2;
+	int dealerCardSum = dealerCard1 + dealerCard2;
+
+	if (playerCardSum <= 15) {
+
+		printf("The player draws a third card with a score of: %d\n", playerCardSum);
+		fprintf(fp, "The player draws a third card with a score of: %d\n", playerCardSum);
+		return playerCardSum = playerCardSum + playerCard3;
+	}
+
+	else if (dealerCardSum <= 15) {
+
+		printf("The dealer draws a third card with a score of: %d\n", dealerCardSum);
+		fprintf(fp, "The dealer draws a third card with a score of: %d\n", dealerCardSum);
+		return dealerCardSum = dealerCardSum + dealerCard3;
+	}
+
+	return playerCardSum = playerCard1 + playerCard2;
+	return dealerCardSum = dealerCard1 + dealerCard2;
+}
+
+int playHand(int ranOut, int playerWin, int dealerWin, int playerCardSum, int dealerCardSum) { //writes out running point value after a card is obtained
+
+	if (playerCardSum > 21 && dealerCardSum <= 21) {
+
+		printf("It looks like your score went over 21. You lost!");
+		return dealerWin + 1;
+	}
+
+	else if (dealerCardSum > 21 && playerCardSum <= 21) {
+
+		printf("The dealer's score went over 21. You won!");
+		return playerWin + 1;
+	}
+
+	else if (dealerCardSum == 21 && playerCardSum == 21) {
+
+		printf("It's a draw!");
+		return ranOut;
+	}
+
+	else if ((dealerCardSum) < 21 > (playerCardSum < dealerCardSum)) {
+
+		printf("The dealer has more points. You lost!");
+		return dealerWin + 1;
+	}
+
+	else if ((dealerCardSum) < 21 > (playerCardSum > dealerCardSum)) {
+
+		printf("The dealer has less points. You won!");
+		return playerWin + 1;
+	}
+
+	return 0;
+}
+
+int getBet(int abc) {
+
+	int betAmount;
+
+	printf("Enter the amount you would like to bet on the hand: ");
+	scanf("%d", &betAmount);
+
+	return betAmount;
+}
+
+int displayBet(int betAmount, int playerCardSum, int dealerCardSum) {
+
+
+	if (playerCardSum = 21) {
+
+		int doubleBet = betAmount * 2; //if the player lands 21 points, player wins double the bet
+
+		printf("You have bet %d and won with a score of 21, therefor your bet is doubled: %d\n", betAmount, doubleBet);
+
+	}
+
+	else if (dealerCardSum = 21) {
+
+		printf("You have bet %d and lost it all.\n", betAmount);
+	}
+
+}
+
+int convert_card(char playerCard1, char playerCard2, char playerCard3, char dealerCard1, char dealerCard2, char dealerCard3, int playerCardSum, int dealerCardSum) {
+
+	int value = 0;
+
+	switch (playerCard1, playerCard2, playerCard3, dealerCard1, dealerCard2, dealerCard3) {
+
+	case 'A': value = 1;
+		puts("Ace");
+		while (dealerCardSum > 10 < playerCardSum) {
+			value = 11;
+			break;
+		}
+		break;
+	case '2': value = 2;
+		break;
+	case '3': value = 3;
+		break;
+	case '4': value = 4;
+		break;
+	case '5': value = 5;
+		break;
+	case '6': value = 6;
+		break;
+	case '7': value = 7;
+		break;
+	case '8': value = 8;
+		break;
+	case '9': value = 9;
+		break;
+	case 'T': value = 10;
+		break;
+	case 'J': value = 10;
+		puts("Jack");
+		break;
+	case 'Q': value = 10;
+		puts("Queen");
+		break;
+	case 'K': value = 10;
+		puts("King");
+		break;
+
+	}
+	return 0;
+}
+
